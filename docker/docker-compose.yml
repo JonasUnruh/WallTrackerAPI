@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: philippsmum
+    ports:
+      - '3306:3306'
+    volumes:
+      - walltracker-db:/var/lib/mysql
+
+volumes:
+  walltracker-db:
