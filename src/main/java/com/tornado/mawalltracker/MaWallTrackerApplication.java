@@ -10,6 +10,4 @@ public class MaWallTrackerApplication {
         SpringApplication.run(MaWallTrackerApplication.class, args);
     }
 
-} //penis in deiner mum
-
-//okayyy lets gooo
+}
