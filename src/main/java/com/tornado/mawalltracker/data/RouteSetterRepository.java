@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RouteSetterRepository extends CrudRepository<RouteSetter, Integer> {
+public interface RouteSetterRepository extends CrudRepository<RouteSetter, Long> {
 }
