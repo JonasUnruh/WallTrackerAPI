@@ -29,4 +29,6 @@ public class RatingsController {
     public ResponseEntity<Iterable<Ratings>> getAllRatings(){
         return new ResponseEntity<>(ratingsRepo.findAll(), HttpStatus.OK);
     }
+
+
 }

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path = "route_setter")
 @CrossOrigin(origins = "*")
@@ -28,5 +30,15 @@ public class RouteSetterController {
     @GetMapping
     public ResponseEntity<Iterable<RouteSetter>> getAllRouteSetter() {
         return new ResponseEntity<>(routeSetterRepo.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "{id}")
+    public ResponseEntity<Integer> getRouteSetterById(@PathVariable("id") final Long id) {
+        Optional<RouteSetter> opRouteSetter = routeSetterRepo.findById(id);
+        if (opRouteSetter.isEmpty()) {
+            return new ResponseEntity<>(-1, HttpStatus.NOT_FOUND);
+        }
+        RouteSetter routeSetter = opRouteSetter.get();
+        return new ResponseEntity(routeSetter, HttpStatus.OK);
     }
 }
