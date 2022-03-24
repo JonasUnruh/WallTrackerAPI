@@ -2,6 +2,7 @@ package com.tornado.mawalltracker.controller;
 
 import com.tornado.mawalltracker.data.RouteSetter;
 import com.tornado.mawalltracker.data.RouteSetterRepository;
+import com.tornado.mawalltracker.data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,5 +41,11 @@ public class RouteSetterController {
         }
         RouteSetter routeSetter = opRouteSetter.get();
         return new ResponseEntity(routeSetter, HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "{id}/delete")
+    public ResponseEntity<RouteSetter> deleteRouteSetter (@PathVariable("id") final  Long id) {
+        routeSetterRepo.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

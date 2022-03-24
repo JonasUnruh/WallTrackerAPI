@@ -4,6 +4,7 @@ package com.tornado.mawalltracker.controller;
 import com.tornado.mawalltracker.data.Location;
 import com.tornado.mawalltracker.data.LocationRepository;
 import com.tornado.mawalltracker.data.RouteSetter;
+import com.tornado.mawalltracker.data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,5 +45,9 @@ public class LocationController {
         return new ResponseEntity(location, HttpStatus.OK);
     }
 
-
+    @DeleteMapping(path = "{id}/delete")
+    public ResponseEntity<Location> deleteLocation (@PathVariable("id") final  Long id) {
+        locationRepo.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

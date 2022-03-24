@@ -3,6 +3,7 @@ package com.tornado.mawalltracker.controller;
 import com.tornado.mawalltracker.data.Boulder;
 import com.tornado.mawalltracker.data.BoulderRepository;
 import com.tornado.mawalltracker.data.RouteSetter;
+import com.tornado.mawalltracker.data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,5 +42,11 @@ public class BoulderController {
         }
         Boulder boulder = opBoulder.get();
         return new ResponseEntity(boulder, HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "{id}/delete")
+    public ResponseEntity<User> deleteBoulder (@PathVariable("id") final  Long id) {
+        boulderRepo.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

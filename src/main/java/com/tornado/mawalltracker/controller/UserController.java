@@ -1,5 +1,6 @@
 package com.tornado.mawalltracker.controller;
 
+import com.tornado.mawalltracker.data.Address;
 import com.tornado.mawalltracker.data.User;
 import com.tornado.mawalltracker.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,22 @@ public class UserController {
         }
         User user = opUser.get();
         return new ResponseEntity(user, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "{id}/getaddress")
+    public ResponseEntity<Integer> getAddressByUserId(@PathVariable("id") final Long id) {
+        Optional<User> opUser = userRepo.findById(id);
+        if (opUser.isEmpty()) {
+            return new ResponseEntity<>(-1, HttpStatus.NOT_FOUND);
+        }
+        Address addressId = opUser.get().getAddressId();
+        return new ResponseEntity(addressId, HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "{id}/delete")
+    public ResponseEntity<User> deleteUser (@PathVariable("id") final  Long id) {
+        userRepo.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
