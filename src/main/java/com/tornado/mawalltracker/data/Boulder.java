@@ -2,11 +2,7 @@ package com.tornado.mawalltracker.data;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 
@@ -20,6 +16,15 @@ public class Boulder {
     private Integer id;
     private Integer difficulty;
 
+    @ManyToOne
+    @JoinColumn(name="route_setter_id", referencedColumnName = "id")
+    private RouteSetter routeSetterId;
+
+    @ManyToOne
+    @JoinColumn(name="location_id", referencedColumnName = "id")
+    private Location locationId;
+
+
     public Boulder(){
 
     }
@@ -29,11 +34,11 @@ public class Boulder {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Boulder boulder = (Boulder) o;
-        return id.equals(boulder.id) && difficulty.equals(boulder.difficulty);
+        return Objects.equals(id, boulder.id) && Objects.equals(difficulty, boulder.difficulty) && Objects.equals(routeSetterId, boulder.routeSetterId) && Objects.equals(locationId, boulder.locationId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, difficulty);
+        return Objects.hash(id, difficulty, routeSetterId, locationId);
     }
 }

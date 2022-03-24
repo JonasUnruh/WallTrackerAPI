@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Objects;
 
 
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 @Entity
 @Data
 public class User {
@@ -17,9 +17,15 @@ public class User {
     private Integer id;
     private String firstName;
     private String lastName;
-//    private Date dob;
-    private Integer age;
-    private Boolean owner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_Id", referencedColumnName = "id")
+    private Address addressId;
+
+
+    //private Date dob;
+    //private Integer age;
+    //private Boolean owner;
 /*
     @OneToMany
     @JoinColumn()
@@ -34,11 +40,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id.equals(user.id) && firstName.equals(user.firstName) && lastName.equals(user.lastName) && age.equals(user.age) && owner.equals(user.owner);
+        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(addressId, user.addressId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, age, owner);
+        return Objects.hash(id, firstName, lastName, addressId);
     }
 }

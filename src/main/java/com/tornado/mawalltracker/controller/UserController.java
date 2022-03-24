@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-/**
- * @author Jonas Mum
- */
+
 @RestController
 @RequestMapping(path = "user")
 @CrossOrigin(origins = "*")
@@ -30,6 +28,7 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
+    /*
     @GetMapping(path = "{id}/getage")
     public ResponseEntity<Integer> getUserAge(@PathVariable("id") final Long id) {
         Optional<User> opUser = userRepo.findById(id);
@@ -39,6 +38,7 @@ public class UserController {
         int age = opUser.get().getAge();
         return new ResponseEntity<>(age, HttpStatus.OK);
     }
+    */
 
     @GetMapping
     public ResponseEntity<Iterable<User>> getAllUsers() {
