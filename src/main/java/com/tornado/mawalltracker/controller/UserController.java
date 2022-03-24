@@ -45,4 +45,14 @@ public class UserController {
         return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(path = "{id}")
+    public ResponseEntity<Integer> getUserById(@PathVariable("id") final Long id) {
+        Optional<User> opUser = userRepo.findById(id);
+        if (opUser.isEmpty()) {
+            return new ResponseEntity<>(-1, HttpStatus.NOT_FOUND);
+        }
+        User user = opUser.get();
+        return new ResponseEntity(user, HttpStatus.OK);
+    }
+
 }
