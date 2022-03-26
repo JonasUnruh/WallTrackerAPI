@@ -17,6 +17,8 @@ public class Ratings {
 
     private Integer rating;
 
+    private String review;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
@@ -29,11 +31,11 @@ public class Ratings {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ratings ratings = (Ratings) o;
-        return Objects.equals(ratingsId, ratings.ratingsId) && Objects.equals(rating, ratings.rating) && Objects.equals(date, ratings.date);
+        return Objects.equals(ratingsId, ratings.ratingsId) && Objects.equals(rating, ratings.rating) && Objects.equals(review, ratings.review) && Objects.equals(date, ratings.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ratingsId, rating, date);
+        return Objects.hash(ratingsId, rating, review, date);
     }
 }
