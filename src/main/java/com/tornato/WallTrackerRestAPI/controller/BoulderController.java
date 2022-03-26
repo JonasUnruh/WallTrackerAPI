@@ -47,4 +47,9 @@ public class BoulderController {
     public Iterable<Boulder> findBoulderByRouteSetter(@PathVariable Long id){
         return boulderRepository.findAllByRouteSetter_RouteSetterId(id);
     }
+
+    @GetMapping("/location/{id}")
+    public Iterable<Boulder> findBoulderByLocation(@PathVariable Long id){
+        return boulderRepository.findAllByLocation_LocationId(id);
+    }
 }

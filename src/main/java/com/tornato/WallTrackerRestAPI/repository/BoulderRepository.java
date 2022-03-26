@@ -8,5 +8,8 @@ import java.util.List;
 
 @Repository
 public interface BoulderRepository extends JpaRepository<Boulder, Long> {
+
     public List<Boulder> findAllByRouteSetter_RouteSetterId(Long routeSetterId);
+
+    public List<Boulder> findAllByLocation_LocationId(Long locationId);
 }

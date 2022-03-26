@@ -10,20 +10,14 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Boulder {
+@Table
+public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long boulderId;
+    private Long locationId;
 
     @Column(nullable = false)
-    private Integer difficulty;
+    private String locationName;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "routeSetter_id")
-    private RouteSetter routeSetter;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "location_id")
-    private Location location;
 }
