@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity
 @Data
@@ -23,4 +22,8 @@ public class Boulder {
     @ManyToOne(optional = false)
     @JoinColumn(name = "routeSetter_id")
     private RouteSetter routeSetter;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "location_id")
+    private Location location;
 }
