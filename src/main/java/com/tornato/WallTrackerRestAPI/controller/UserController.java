@@ -2,7 +2,6 @@ package com.tornato.WallTrackerRestAPI.controller;
 
 import com.tornato.WallTrackerRestAPI.entity.User;
 import com.tornato.WallTrackerRestAPI.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,7 +35,7 @@ public class UserController {
 
     @GetMapping("/email/{emailId}")
     public Optional<User> findUserByEmail(@PathVariable String emailId){
-        return Optional.ofNullable(userRepository.findByEmailId(emailId));
+        return userRepository.findByEmailId(emailId);
     }
 
     @DeleteMapping("/id/{id}")
