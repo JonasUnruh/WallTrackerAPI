@@ -3,13 +3,11 @@ package com.tornato.WallTrackerRestAPI.controller;
 import com.tornato.WallTrackerRestAPI.entity.RouteSetter;
 import com.tornato.WallTrackerRestAPI.repository.RouteSetterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("routesetter")
+@CrossOrigin("*")
 public class RouteSetterController {
 
     @Autowired

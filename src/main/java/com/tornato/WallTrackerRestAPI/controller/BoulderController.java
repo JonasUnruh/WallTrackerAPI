@@ -17,6 +17,7 @@ import java.util.OptionalDouble;
 @RestController
 @RequestMapping("boulder")
 @AllArgsConstructor
+@CrossOrigin("*")
 public class BoulderController {
 
     @Autowired
