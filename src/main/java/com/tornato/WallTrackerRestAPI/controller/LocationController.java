@@ -27,12 +27,12 @@ public class LocationController {
     }
 
     @GetMapping
-    private Iterable<Location> findeAllLocations(){
+    private Iterable<Location> findAllLocations(){
         return locationRepository.findAll();
     }
 
     @GetMapping("/id/{id}")
-    private Optional<Location> findeLocationById(@PathVariable Long id){
+    private Optional<Location> findLocationById(@PathVariable Long id){
         return locationRepository.findById(id);
     }
 
