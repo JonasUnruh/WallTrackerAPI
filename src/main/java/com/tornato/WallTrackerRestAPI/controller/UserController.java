@@ -4,6 +4,7 @@ import com.tornato.WallTrackerRestAPI.entity.User;
 import com.tornato.WallTrackerRestAPI.repository.UserRepository;
 import com.tornato.WallTrackerRestAPI.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class UserController {
 
     @GetMapping("/email/{emailId}")
     public Optional<User> findUserByEmail(@PathVariable String emailId){
-        return Optional.ofNullable(userRepository.findByEmailId(emailId));
+        return userRepository.findByEmailId(emailId);
     }
 
     @DeleteMapping("/id/{id}")
