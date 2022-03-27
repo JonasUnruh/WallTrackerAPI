@@ -4,13 +4,16 @@ import com.tornato.WallTrackerRestAPI.entity.Rating;
 import com.tornato.WallTrackerRestAPI.repository.BoulderRepository;
 import com.tornato.WallTrackerRestAPI.repository.RatingRepository;
 import com.tornato.WallTrackerRestAPI.repository.UserRepository;
+import com.tornato.WallTrackerRestAPI.service.RatingService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("rating")
@@ -25,6 +28,8 @@ public class RatingController {
 
     @Autowired
     private BoulderRepository boulderRepository;
+
+
 
     @PostMapping
     private ResponseEntity<Rating> createRating(@RequestBody Rating rating){

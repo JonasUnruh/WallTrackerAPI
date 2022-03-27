@@ -1,19 +1,18 @@
 package com.tornato.WallTrackerRestAPI.controller;
 
 import com.tornato.WallTrackerRestAPI.entity.Boulder;
-import com.tornato.WallTrackerRestAPI.entity.RouteSetter;
 import com.tornato.WallTrackerRestAPI.repository.BoulderRepository;
 import com.tornato.WallTrackerRestAPI.repository.LocationRepository;
 import com.tornato.WallTrackerRestAPI.repository.RouteSetterRepository;
-import com.tornato.WallTrackerRestAPI.service.BoulderService;
+import com.tornato.WallTrackerRestAPI.service.RatingService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.Optional;
+import java.util.OptionalDouble;
 
 @RestController
 @RequestMapping("boulder")
@@ -28,6 +27,8 @@ public class BoulderController {
 
     @Autowired
     private LocationRepository locationRepository;
+
+    private RatingService ratingService;
 
 
     @PostMapping("")
@@ -67,5 +68,10 @@ public class BoulderController {
     @GetMapping("/location/{id}")
     public Iterable<Boulder> findBoulderByLocation(@PathVariable Long id){
         return boulderRepository.findAllByLocation_LocationId(id);
+    }
+
+    @GetMapping("/id/{id}/ratingsmean")
+    private OptionalDouble findBoulderRatingsMeanById(@PathVariable Long id){
+        return ratingService.calcRatingsMeanByBoulderId(id);
     }
 }
