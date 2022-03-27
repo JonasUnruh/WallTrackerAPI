@@ -36,6 +36,8 @@ public class User {
     @Column(unique = true)
     private String emailId;
 
+
     @JsonIgnore
     private String password;
+
 }
