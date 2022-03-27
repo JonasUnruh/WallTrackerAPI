@@ -15,5 +15,7 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
 
     public List<Rating> findAllByBoulder_Location_LocationId(Long locationId);
 
+    public List<Rating> findAllByBoulder_RouteSetter_RouteSetterId(Long routeSetterId);
+
 
 }

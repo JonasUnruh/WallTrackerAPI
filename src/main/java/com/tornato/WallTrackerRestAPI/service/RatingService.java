@@ -22,8 +22,6 @@ public class RatingService {
     @Autowired
     private RatingRepository ratingRepository;
 
-    @Autowired
-    private BoulderRepository boulderRepository;
 
     public OptionalDouble calcRatingsMeanByBoulderId(Long boulderId){
          return ratingRepository.findAllByBoulder_BoulderId(boulderId)
@@ -34,6 +32,12 @@ public class RatingService {
 
     public OptionalDouble calcRatingsMeanByLocationId(Long locationId){
         return ratingRepository.findAllByBoulder_Location_LocationId(locationId)
+                .stream().map(Rating::getRating).collect(Collectors.toList())
+                .stream().mapToDouble(d -> d).average();
+    }
+
+    public OptionalDouble calcRatingsMeanByRouteSetterId(Long routeSetterId){
+        return ratingRepository.findAllByBoulder_RouteSetter_RouteSetterId(routeSetterId)
                 .stream().map(Rating::getRating).collect(Collectors.toList())
                 .stream().mapToDouble(d -> d).average();
     }

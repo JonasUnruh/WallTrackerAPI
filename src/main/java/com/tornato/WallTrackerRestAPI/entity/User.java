@@ -27,15 +27,8 @@ public class User {
     @Column(nullable = false)
     private String lastName;
 
-    //Todo UniqueConstrain Funktioniert noch nicht!
-    //@Column(
-    //        nullable = false,
-    //       unique = true
-    //)
-
     @Column(unique = true)
     private String emailId;
-
 
     @JsonIgnore
     private String password;

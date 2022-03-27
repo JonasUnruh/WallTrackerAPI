@@ -18,7 +18,8 @@ public class LocationController {
     @Autowired
     private LocationRepository locationRepository;
 
-    public RatingService ratingService;
+    @Autowired
+    private RatingService ratingService;
 
     @PostMapping
     private void createLocation(@RequestBody Location location){
@@ -37,7 +38,7 @@ public class LocationController {
     }
 
     @GetMapping("/id/{id}/ratingsmean")
-    private OptionalDouble findBoulderRatingsMeanById(@PathVariable Long id){
+    private OptionalDouble findLocationRatingsMeanById(@PathVariable Long id){
         return ratingService.calcRatingsMeanByLocationId(id);
     }
 }
