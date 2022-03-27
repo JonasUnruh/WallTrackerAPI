@@ -13,4 +13,7 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
 
     public List<Rating> findAllByUser_UserId(Long userId);
 
+    public List<Rating> findAllByBoulder_Location_LocationId(Long locationId);
+
+
 }

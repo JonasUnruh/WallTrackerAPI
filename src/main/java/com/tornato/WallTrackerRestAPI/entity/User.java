@@ -31,4 +31,7 @@ public class User {
             unique = true
     )
     private String emailId;
+
+    @Column(nullable = true)
+    private Double ratingsMean;
 }
