@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -26,11 +25,5 @@ public class RouteSetter {
 
     @Column(nullable = false)
     private String lastName;
-
-    /*
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "routeSetter_id", referencedColumnName = "routeSetterId")
-    private List<Boulder> boulder;
-    */
 
 }

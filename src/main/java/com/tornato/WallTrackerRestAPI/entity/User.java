@@ -1,7 +1,6 @@
 package com.tornato.WallTrackerRestAPI.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,15 +26,8 @@ public class User {
     @Column(nullable = false)
     private String lastName;
 
-    //Todo UniqueConstrain Funktioniert noch nicht!
-    //@Column(
-    //        nullable = false,
-    //       unique = true
-    //)
-
     @Column(unique = true)
     private String emailId;
-
 
     @JsonIgnore
     private String password;

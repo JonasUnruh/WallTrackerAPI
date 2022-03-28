@@ -9,6 +9,19 @@ services:
       - '3306:3306'
     volumes:
       - walltracker-db:/var/lib/mysql
+    networks:
+      - walltracker-network
+
+  walltracker-api:
+    image: walltracker-api:latest
+    ports:
+      - '8080:8080'
+    networks:
+      - walltracker-network
+
+networks:
+  walltracker-network:
+    driver: bridge
 
 volumes:
   walltracker-db:

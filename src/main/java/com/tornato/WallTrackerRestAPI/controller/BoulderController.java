@@ -29,6 +29,7 @@ public class BoulderController {
     @Autowired
     private LocationRepository locationRepository;
 
+    @Autowired
     private RatingService ratingService;
 
 

@@ -2,14 +2,12 @@ package com.tornato.WallTrackerRestAPI.controller;
 
 import com.tornato.WallTrackerRestAPI.entity.User;
 import com.tornato.WallTrackerRestAPI.repository.UserRepository;
-import com.tornato.WallTrackerRestAPI.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalDouble;
 
 @RestController
 @RequestMapping("/user")
@@ -19,7 +17,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    public RatingService ratingService;
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
