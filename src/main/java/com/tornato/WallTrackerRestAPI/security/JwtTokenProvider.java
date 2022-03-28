@@ -1,18 +1,26 @@
 package com.tornato.WallTrackerRestAPI.security;
+
+import com.tornato.WallTrackerRestAPI.repository.UserRepository;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.Optional;
 
 @Component
 @Slf4j
 public class JwtTokenProvider {
+
+    @Autowired
+    private UserRepository userRepository ;
 
     @Value("${app.jwtSecret}")
     private String jwtSecret;
@@ -21,11 +29,16 @@ public class JwtTokenProvider {
         Instant now = Instant.now();
         Instant expiration = now.plus(7, ChronoUnit.DAYS);
 
+        Optional<com.tornato.WallTrackerRestAPI.entity.User> user = Optional.of(new com.tornato.WallTrackerRestAPI.entity.User());
+        user = userRepository.findByEmailId(userEmail);
+        String userId = user.get().getUserId().toString();
+
         return Jwts.builder()
                 .setSubject(userEmail)
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(expiration))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .claim("userId", userId)
                 .compact();
 
     }

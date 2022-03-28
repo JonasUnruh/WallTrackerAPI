@@ -13,6 +13,7 @@ import java.util.OptionalDouble;
 @RestController
 @RequestMapping("location")
 @AllArgsConstructor
+@CrossOrigin("*")
 public class LocationController {
 
     @Autowired

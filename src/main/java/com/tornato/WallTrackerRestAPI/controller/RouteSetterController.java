@@ -6,10 +6,9 @@ import com.tornato.WallTrackerRestAPI.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.OptionalDouble;
-
 @RestController
 @RequestMapping("routesetter")
+@CrossOrigin("*")
 public class RouteSetterController {
 
     @Autowired

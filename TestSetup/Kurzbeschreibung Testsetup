@@ -1,0 +1,11 @@
+Für den Test der User Story Rating anzeigen lassen wurde folgendes TEst Szenario angelegt:
+
+Die Testklasse befindet sich unter WallTrackerAPI/src/test  
+
+Für den Test wurde die SecurityConfig Klasse, diese befindet sich WallTrackerAPI/src/main/java/com.tornato.WallTrackerAPI/config, angepasst.
+
+In der Methode configure der SecurityConfig wurde der Pfad bei .antMatchers von .antMatchers("/auth/**") auf .antMatchers("/rating/**") geändert,
+dies wurde gemacht, weil das der einzige Pfad ist der ohne Authentifizierung erreichbar ist.
+
+
+
