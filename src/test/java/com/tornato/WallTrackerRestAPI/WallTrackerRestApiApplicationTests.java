@@ -71,7 +71,6 @@ class WallTrackerRestApiApplicationTests {
 		boulder.setDifficulty(3);
 		boulder.setRouteSetter(routeSetter);
 		boulder.setLocation(location);
-		boulder.setRatingsMean(0.5);
 		boulderRepository.save(boulder);
 
 		Rating rating = new Rating();

@@ -28,7 +28,7 @@ public class RouteSetterController {
     }
 
     @GetMapping("/id/{id}/ratingsmean")
-    private OptionalDouble findRouteSetterRatingsMeanById(@PathVariable Long id){
+    private java.util.OptionalDouble findRouteSetterRatingsMeanById(@PathVariable Long id){
         return ratingService.calcRatingsMeanByRouteSetterId(id);
     }
 }
