@@ -3,10 +3,8 @@ package com.tornato.WallTrackerRestAPI.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.w3c.dom.Text;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @Data

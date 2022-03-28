@@ -1,16 +1,12 @@
 package com.tornato.WallTrackerRestAPI.service;
 
-import com.tornato.WallTrackerRestAPI.entity.Boulder;
 import com.tornato.WallTrackerRestAPI.entity.Rating;
-import com.tornato.WallTrackerRestAPI.repository.BoulderRepository;
 import com.tornato.WallTrackerRestAPI.repository.RatingRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
