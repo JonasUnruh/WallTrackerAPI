@@ -105,9 +105,6 @@ class WallTrackerRestApiApplicationTests {
 		Assertions.assertEquals(ratingResponseEntity.getBody().getRating(),3);
 		Assertions.assertEquals(ratingResponseEntity.getBody().getReview(), ratingReview);
 
-
-		//Assertions.assertEquals(ratingResponseEntity.getBody().getUser(), userRepository.getById(1L));
-		//Assertions.assertEquals(ratingResponseEntity.getBody().getBoulder(), boulderRepository.getById(4L));
 	}
 
 }
