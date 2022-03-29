@@ -4,7 +4,7 @@ services:
   mysql:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_ROOT_PASSWORD: philippsmum
     ports:
       - '3306:3306'
     volumes:
@@ -13,7 +13,7 @@ services:
       - walltracker-network
 
   walltracker-api:
-    image: walltracker-api:latest
+    image: mrsteeltitan/walltracker:latest
     ports:
       - '8080:8080'
     networks:
