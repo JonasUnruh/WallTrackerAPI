@@ -7,5 +7,6 @@ Für den Test wurde die SecurityConfig Klasse, diese befindet sich WallTrackerAP
 In der Methode configure der SecurityConfig wurde der Pfad bei .antMatchers von .antMatchers("/auth/**") auf .antMatchers("/rating/**") geändert,
 dies wurde gemacht, weil das der einzige Pfad ist der ohne Authentifizierung erreichbar ist.
 
+Leider gab es keine andere Möglichkeit den Test mit der regulären Authentication auszuführen, sodass der Workaround mit der Pfadanpassung notwendig war.
 
 
